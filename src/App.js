@@ -1,10 +1,10 @@
 import React from "react";
-import DashboardShell from "./features/Dashboard/DashboardShell";
-import {loadMirageInDev} from "./mirage";
+// import DashboardShell from "./features/Dashboard/DashboardShell";
+import DataFetchingContainer from './features/Playground/DataFetchingContainer';
 
 const App = () => {
-  loadMirageInDev()
-  return <DashboardShell />;
+  // return <DashboardShell />;
+  return <DataFetchingContainer />;
 };
 
 export default App;
