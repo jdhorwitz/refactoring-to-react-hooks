@@ -1,21 +1,22 @@
 import React from "react";
 import DashboardShell from "./features/Dashboard/DashboardShell";
+import { sales } from './mocks';
+export const globalContext = React.createContext();
+const { Provider } = globalContext;
 
-export const Context = React.createContext();
+const initialState = {
+  loading: false,
+  error: "",
+  salesTotal: 3466,
+  subscriptionsTotal: 1492,
+  data: sales
+};
 
 const App = () => {
-  const state = {
-    loading: true,
-    error: "",
-    salesTotal: 0,
-    subscriptionsTotal: 0,
-    data: [{ timestamp: new Date().toISOString(), amount: 0 }]
-  };
-
   return (
-    <Context.Provider value={state}>
+    <Provider value={initialState}>
       <DashboardShell />
-    </Context.Provider>
+    </Provider>
   )
 };
 

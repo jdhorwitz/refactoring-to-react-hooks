@@ -1,23 +1,21 @@
-import React from "react";
-import { Context } from '../../App';
+import React, { useContext } from "react";
+import { globalContext } from '../../App';
 
 const SummaryContainer = () => {
+  const { salesTotal, subscriptionsTotal } = useContext(globalContext);
+
   return (
-    <Context.Consumer>
-      {context => (
-        <div className="summary flex flex-row">
-          <div className="card bg-indigo">
-            <p>CellFast sales</p>
-            <p>$ {context.salesTotal}</p>
-          </div>
-          <div className="card bg-blue">
-            <p>CellNow subscriptions</p>
-            <p>$ {context.subscriptionsTotal}</p>
-          </div>
-        </div>
-      )}
-    </Context.Consumer>
-  );
+    <div className="summary flex flex-row">
+      <div className="card bg-indigo">
+        <p>CellFast sales</p>
+        <p>$ {salesTotal}</p>
+      </div>
+      <div className="card bg-blue">
+        <p>CellNow subscriptions</p>
+        <p>$ {subscriptionsTotal}</p>
+      </div>
+    </div>
+  )
 };
 
 export default SummaryContainer;
