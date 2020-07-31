@@ -1,25 +1,26 @@
-import React, { useState} from "react";
-import Aside from "../../common/components/Aside";
-import ChartContainer from "./ChartContainer";
-import Layout from "../../common/components/Layout";
-import Main from "../../common/components/Main";
-import SummaryContainer from "./SummaryContainer";
+import React, { useState } from 'react';
+import Aside from '../../common/components/Aside';
+import ChartContainer from './ChartContainer';
+import Layout from '../../common/components/Layout';
+import Main from '../../common/components/Main';
+import SummaryContainer from './SummaryContainer';
 import Select from '../../common/components/Select';
 
-const DashboardShell = () => {
-  const [selectedLabel, setSelectedLabel] = useState("")
+const DashboardShell = ({ fetchDataset }) => {
+  const [selectedLabel, setSelectedLabel] = useState('');
 
-  const handleSelectChange = event => {
+  const handleSelectChange = (event) => {
     const selectedLabel = event.target.selectedOptions[0].label;
     setSelectedLabel(selectedLabel);
-  }
+    fetchDataset(event.target.value);
+  };
 
   const optionsForSelect = [
-    { label: "Sales", value: `${process.env.REACT_APP_BASE_URL}/sales/` },
+    { label: 'Sales', value: `${process.env.REACT_APP_BASE_URL}/sales/` },
     {
-      label: "Subscriptions",
-      value: `${process.env.REACT_APP_BASE_URL}/subscriptions/`
-    }
+      label: 'Subscriptions',
+      value: `${process.env.REACT_APP_BASE_URL}/subscriptions/`,
+    },
   ];
 
   return (
@@ -41,7 +42,7 @@ const DashboardShell = () => {
         <ChartContainer selectedLabel={selectedLabel} />
       </Main>
     </Layout>
-  )
-}
+  );
+};
 
 export default DashboardShell;
