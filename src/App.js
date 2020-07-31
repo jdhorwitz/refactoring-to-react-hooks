@@ -1,16 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import DashboardShell from './features/Dashboard/DashboardShell';
-import { useFetch } from './common/components/UseFetch';
-export const globalContext = React.createContext();
-const { Provider } = globalContext;
+import { Provider } from './Provider';
 
 const App = () => {
-  const [endpoint, setEndpoint] = useState('');
-  const value = useFetch(endpoint);
-
   return (
-    <Provider value={value}>
-      <DashboardShell fetchDataset={setEndpoint} />
+    <Provider>
+      <DashboardShell />
     </Provider>
   );
 };

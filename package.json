@@ -35,9 +35,14 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react-hooks": "^3.4.1",
     "cypress": "^4.10.0",
+    "fetch-mock": "^9.10.5",
     "miragejs": "^0.1.40",
+    "node-fetch": "^2.6.0",
     "prop-types": "^15.7.2",
-    "time-series-data-generator": "^0.1.5"
+    "react-test-renderer": "^16.13.1",
+    "time-series-data-generator": "^0.1.5",
+    "whatwg-fetch": "^3.2.0"
   }
 }
